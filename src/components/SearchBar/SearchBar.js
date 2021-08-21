@@ -16,6 +16,9 @@ class SearchBar extends React.Component {
             location: '',
             sortBy: 'best_match'
         }
+        this.handleTermChange = this.handleTermChange.bind(this)
+        this.handleLocationChange = this.handleLocationChange.bind(this)
+        this.handleSearch = this.handleSearch.bind(this)
     }
     getSortByClass(sortByOption){
         if (sortByOption === this.state.sortBy){
@@ -29,10 +32,24 @@ class SearchBar extends React.Component {
             sortBy: sortByOption
         })
     }
+    handleTermChange(event){
+        this.setState({
+            term: event.target.value,
+          });
+    }
+    handleLocationChange(event){
+        this.setState({
+            location: event.target.value,
+          });
+    }
+    handleSearch(event){
+        this.props.searchYelp( this.state.term, this.state.location, this.state.sortBy);
+        event.preventDefault()
+    }
     renderSortByOptions() {
         return Object.keys(sortByOptions).map(sortByOption => {
             let sortByOptionValue = sortByOptions[sortByOption];
-            return <li className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue} > {sortByOption}</li>
+            return <li onClick={this.handleSortByChange.bind(this, sortByOptionValue)} className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue} > {sortByOption}</li>
         });
     };
     
@@ -45,11 +62,11 @@ class SearchBar extends React.Component {
                     </ul>
                 </div>
                 <div className="SearchBar-fields">
-                    <input placeholder="Search Businesses" />
-                    <input placeholder="Where?" />
+                    <input onChange={this.handleTermChange} placeholder="Search Businesses" />
+                    <input onChange={this.handleLocationChange} placeholder="Where?" />
                 </div>
                 <div className="SearchBar-submit">
-                    <a href='www.google.com'>Let's Go</a>
+                    <a onClick={this.handleSearch} href='www.google.com'>Let's Go</a>
                 </div>
             </div>
         )
