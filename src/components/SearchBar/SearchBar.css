@@ -74,6 +74,24 @@
     cursor: pointer;
     background-color: #a7874b;
   }
+
+  .corsInfo{
+    text-align: center;
+    color: white;
+    margin: 5px auto;
+    padding: 20px;
+    max-width: 200px;
+  }
+  .corsInfo a {
+    background-color: #cca353;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: .72rem 1.7rem;
+  }
+  .corsInfo p {
+    margin-bottom: 30px;
+  }
   
   @media only screen and (max-width: 560px) {
     .SearchBar {

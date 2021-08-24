@@ -52,7 +52,7 @@ class SearchBar extends React.Component {
             return <li onClick={this.handleSortByChange.bind(this, sortByOptionValue)} className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue} > {sortByOption}</li>
         });
     };
-    
+
     render() {
         return (
             <div className="SearchBar">
@@ -67,6 +67,10 @@ class SearchBar extends React.Component {
                 </div>
                 <div className="SearchBar-submit">
                     <a onClick={this.handleSearch} href='www.google.com'>Let's Go</a>
+                </div>
+                <div className="corsInfo">
+                    <p>To temporarily unlock access to the demo, click on the following button:</p>
+                    <a href='https://cors-anywhere.herokuapp.com/corsdemo'>ACCESS</a>
                 </div>
             </div>
         )
