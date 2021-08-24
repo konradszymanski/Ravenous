@@ -2,6 +2,11 @@
 
 Ravenous project, a React app to search for restaurants using the Yelp API.
 
+[temporarily unlock access to the demo](https://cors-anywhere.herokuapp.com/corsdemo)
+
+[GO TO THE APP](https://ravenous-five.vercel.app)
+
+
 ### App functions
 
 - User should be able to search for restaurants 
